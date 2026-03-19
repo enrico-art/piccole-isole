@@ -1,0 +1,1280 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Piccole Isole 2025 — Fondazione Sanlorenzo</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #0d2340;
+    --ocean: #1a5276;
+    --sea: #2e86c1;
+    --sky: #aed6f1;
+    --sand: #e8f4fb;
+    --warm: #d0eaf7;
+    --coral: #e67e5a;
+    --white: #ffffff;
+    --text: #1a1a2e;
+    --muted: #5a6a7a;
+    --light-border: rgba(46,134,193,0.15);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    color: var(--text);
+    background: var(--white);
+    line-height: 1.7;
+  }
+
+  /* ── NAVBAR ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--light-border);
+    padding: 0 2rem;
+    height: 68px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+  }
+
+  .nav-logo-mark {
+    width: 38px;
+    height: 38px;
+    background: var(--navy);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .nav-logo-mark svg { width: 22px; height: 22px; }
+
+  .nav-logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+  }
+
+  .nav-logo-text span:first-child {
+    font-family: 'Playfair Display', serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--navy);
+  }
+
+  .nav-logo-text span:last-child {
+    font-size: 10px;
+    font-weight: 300;
+    color: var(--muted);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .btn-ghost {
+    padding: 8px 16px;
+    border: 1px solid rgba(13,35,64,0.2);
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--muted);
+    background: transparent;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.2s;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .btn-ghost:hover {
+    border-color: var(--ocean);
+    color: var(--ocean);
+    background: rgba(26,82,118,0.04);
+  }
+
+  .btn-primary {
+    padding: 9px 20px;
+    background: var(--navy);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.2s;
+    font-family: 'DM Sans', sans-serif;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .btn-primary:hover {
+    background: var(--ocean);
+    transform: translateY(-1px);
+  }
+
+  .btn-primary svg { width: 14px; height: 14px; }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    background: var(--navy);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    padding: 120px 2rem 80px;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 60% 80%, rgba(46,134,193,0.18) 0%, transparent 70%),
+      radial-gradient(ellipse 50% 40% at 20% 30%, rgba(174,214,241,0.08) 0%, transparent 60%),
+      linear-gradient(160deg, #0d2340 0%, #0b2035 50%, #091830 100%);
+  }
+
+  .hero-waves {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 120px;
+    overflow: hidden;
+  }
+
+  .hero-waves svg { width: 100%; height: 100%; }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 1100px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(174,214,241,0.12);
+    border: 1px solid rgba(174,214,241,0.25);
+    color: var(--sky);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border-radius: 100px;
+    margin-bottom: 2rem;
+  }
+
+  .hero-eyebrow::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--sky);
+  }
+
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3rem, 7vw, 6rem);
+    font-weight: 400;
+    color: white;
+    line-height: 1.05;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-title em {
+    font-style: italic;
+    color: var(--sky);
+  }
+
+  .hero-subtitle {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    font-weight: 300;
+    color: rgba(255,255,255,0.65);
+    max-width: 580px;
+    margin-bottom: 2.5rem;
+    line-height: 1.8;
+  }
+
+  .hero-cta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .btn-hero {
+    padding: 14px 28px;
+    background: white;
+    color: var(--navy);
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.25s;
+    font-family: 'DM Sans', sans-serif;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .btn-hero:hover {
+    background: var(--sky);
+    transform: translateY(-2px);
+  }
+
+  .btn-hero-ghost {
+    padding: 14px 28px;
+    background: transparent;
+    color: rgba(255,255,255,0.75);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 400;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.25s;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .btn-hero-ghost:hover {
+    border-color: rgba(255,255,255,0.6);
+    color: white;
+    background: rgba(255,255,255,0.06);
+  }
+
+  .hero-scroll {
+    position: absolute;
+    bottom: 140px;
+    right: 4%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: rgba(255,255,255,0.3);
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    z-index: 2;
+  }
+
+  .hero-scroll-line {
+    width: 1px;
+    height: 48px;
+    background: linear-gradient(to bottom, rgba(255,255,255,0.3), transparent);
+  }
+
+  /* ── STATS BAND ── */
+  .stats-band {
+    background: var(--sand);
+    padding: 4rem 2rem;
+  }
+
+  .stats-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .stats-label {
+    text-align: center;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 2.5rem;
+  }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--light-border);
+    border: 1px solid var(--light-border);
+    border-radius: 16px;
+    overflow: hidden;
+  }
+
+  @media (max-width: 700px) {
+    .stats-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .stat-card {
+    background: var(--sand);
+    padding: 2rem 1.5rem;
+    text-align: center;
+  }
+
+  .stat-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 400;
+    color: var(--navy);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+
+  .stat-unit {
+    font-size: 1.5rem;
+    color: var(--sea);
+  }
+
+  .stat-desc {
+    font-size: 13px;
+    color: var(--muted);
+    font-weight: 400;
+    line-height: 1.5;
+    margin-top: 0.5rem;
+  }
+
+  /* ── SECTION BASE ── */
+  .section {
+    padding: 6rem 2rem;
+  }
+
+  .section-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .section-tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--sea);
+    margin-bottom: 1rem;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+    font-weight: 400;
+    color: var(--navy);
+    line-height: 1.2;
+    margin-bottom: 1.25rem;
+  }
+
+  .section-lead {
+    font-size: 1.1rem;
+    color: var(--muted);
+    font-weight: 300;
+    max-width: 620px;
+    line-height: 1.85;
+  }
+
+  /* ── WHY SECTION ── */
+  .why-section {
+    background: var(--white);
+  }
+
+  .why-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: start;
+    margin-top: 4rem;
+  }
+
+  .why-text p {
+    font-size: 1rem;
+    color: #3a4a5a;
+    line-height: 1.9;
+    margin-bottom: 1.25rem;
+  }
+
+  .blockquote {
+    border-left: 3px solid var(--sea);
+    padding: 1.25rem 1.5rem;
+    background: linear-gradient(to right, rgba(46,134,193,0.05), transparent);
+    border-radius: 0 12px 12px 0;
+    margin: 2rem 0;
+  }
+
+  .blockquote p {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem;
+    font-style: italic;
+    color: var(--navy) !important;
+    line-height: 1.6;
+    margin: 0 !important;
+  }
+
+  .collab-card {
+    background: var(--sand);
+    border-radius: 20px;
+    padding: 2.5rem;
+    position: sticky;
+    top: 100px;
+  }
+
+  .collab-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    color: var(--navy);
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+  }
+
+  .collab-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(46,134,193,0.12);
+  }
+
+  .collab-item:last-of-type { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+
+  .collab-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    background: var(--ocean);
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .collab-icon svg { width: 16px; height: 16px; }
+
+  .collab-item-title {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--navy);
+    margin-bottom: 4px;
+  }
+
+  .collab-item-text {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  /* ── PARTNERS ── */
+  .partners-section {
+    background: var(--sand);
+    padding: 5rem 2rem;
+  }
+
+  .partners-header {
+    text-align: center;
+    margin-bottom: 3.5rem;
+  }
+
+  .partners-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .partner-tile {
+    background: transparent;
+    border-radius: 14px;
+    border: none;
+    aspect-ratio: 3/2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: all 0.2s;
+    padding: 1rem;
+  }
+
+  .partner-tile:hover {
+    transform: translateY(-3px);
+    opacity: 0.8;
+  }
+
+  .partner-name {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--navy);
+    text-align: center;
+    line-height: 1.3;
+  }
+
+  /* ── REPORT CTA ── */
+  .report-cta {
+    background: var(--navy);
+    padding: 6rem 2rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .report-cta::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 70% 80% at 50% 100%, rgba(46,134,193,0.2) 0%, transparent 70%);
+  }
+
+  .report-cta-inner {
+    position: relative;
+    z-index: 1;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .report-cta h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 400;
+    color: white;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+
+  .report-cta p {
+    color: rgba(255,255,255,0.6);
+    font-weight: 300;
+    font-size: 1.05rem;
+    margin-bottom: 2.5rem;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #070f1a;
+    color: rgba(255,255,255,0.5);
+    padding: 4rem 2rem 2rem;
+  }
+
+  .footer-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .footer-top {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    gap: 3rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    margin-bottom: 2rem;
+  }
+
+  .footer-brand p {
+    font-size: 13px;
+    line-height: 1.8;
+    margin-top: 1rem;
+    max-width: 260px;
+  }
+
+  .footer-col h4 {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.8);
+    margin-bottom: 1rem;
+  }
+
+  .footer-col a, .footer-col p {
+    display: block;
+    font-size: 13px;
+    color: rgba(255,255,255,0.45);
+    text-decoration: none;
+    margin-bottom: 0.5rem;
+    transition: color 0.2s;
+  }
+
+  .footer-col a:hover { color: var(--sky); }
+
+  .social-links {
+    display: flex;
+    gap: 10px;
+    margin-top: 0.5rem;
+  }
+
+  .social-link {
+    width: 34px;
+    height: 34px;
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+  }
+
+  .social-link:hover {
+    border-color: var(--sky);
+    background: rgba(174,214,241,0.08);
+  }
+
+  .social-link svg { width: 14px; height: 14px; fill: rgba(255,255,255,0.5); }
+  .social-link:hover svg { fill: var(--sky); }
+
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+  }
+
+  .footer-bottom a { color: rgba(255,255,255,0.35); text-decoration: none; }
+  .footer-bottom a:hover { color: var(--sky); }
+
+  /* ── MODAL ── */
+  .modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(7,15,26,0.75);
+    backdrop-filter: blur(6px);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+  }
+
+  .modal-overlay.active { display: flex; }
+
+  .modal {
+    background: white;
+    border-radius: 20px;
+    padding: 2.5rem;
+    max-width: 460px;
+    width: 100%;
+    position: relative;
+    animation: modalIn 0.25s ease;
+  }
+
+  @keyframes modalIn {
+    from { opacity: 0; transform: translateY(16px) scale(0.97); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+  }
+
+  .modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    border: none;
+    background: rgba(0,0,0,0.06);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    color: var(--muted);
+    transition: background 0.2s;
+  }
+
+  .modal-close:hover { background: rgba(0,0,0,0.1); }
+
+  .modal h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 0.5rem;
+  }
+
+  .modal p {
+    font-size: 14px;
+    color: var(--muted);
+    margin-bottom: 1.5rem;
+    line-height: 1.7;
+  }
+
+  .modal-field {
+    margin-bottom: 1rem;
+  }
+
+  .modal-field label {
+    display: block;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--navy);
+    margin-bottom: 6px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  .modal-field input[type="email"] {
+    width: 100%;
+    padding: 11px 14px;
+    border: 1px solid rgba(0,0,0,0.15);
+    border-radius: 10px;
+    font-size: 14px;
+    font-family: 'DM Sans', sans-serif;
+    color: var(--text);
+    outline: none;
+    transition: border-color 0.2s;
+  }
+
+  .modal-field input[type="email"]:focus {
+    border-color: var(--sea);
+  }
+
+  .consent-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 1.5rem;
+  }
+
+  .consent-row input[type="checkbox"] {
+    margin-top: 2px;
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    accent-color: var(--navy);
+  }
+
+  .consent-row label {
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  .consent-row label a {
+    color: var(--sea);
+    text-decoration: underline;
+  }
+
+  .btn-modal {
+    width: 100%;
+    padding: 13px;
+    background: var(--navy);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    transition: background 0.2s;
+  }
+
+  .btn-modal:hover { background: var(--ocean); }
+  .btn-modal:disabled { background: var(--muted); cursor: not-allowed; }
+
+  .modal-success {
+    text-align: center;
+    padding: 1rem 0;
+  }
+
+  .modal-success-icon {
+    width: 60px;
+    height: 60px;
+    background: rgba(26,82,118,0.08);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.25rem;
+  }
+
+  .modal-success h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.75rem;
+    color: var(--navy);
+  }
+
+  .modal-success p {
+    font-size: 14px;
+    color: var(--muted);
+    margin-bottom: 1.5rem;
+  }
+
+  .btn-access {
+    display: inline-block;
+    padding: 12px 28px;
+    background: var(--navy);
+    color: white;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    font-family: 'DM Sans', sans-serif;
+    transition: background 0.2s;
+  }
+
+  .btn-access:hover { background: var(--ocean); }
+
+  @media (max-width: 768px) {
+    .why-layout { grid-template-columns: 1fr; gap: 2.5rem; }
+    .partners-grid { grid-template-columns: repeat(2, 1fr); }
+    .footer-top { grid-template-columns: 1fr 1fr; gap: 2rem; }
+    .footer-brand { grid-column: 1 / -1; }
+    .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
+    .hero-scroll { display: none; }
+    nav { padding: 0 1rem; }
+    .nav-logo-text { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <a href="#" class="nav-logo">
+    <div class="nav-logo-mark">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 3C9 3 6 5 6 8C6 11 9 12 12 12C15 12 18 13 18 16C18 19 15 21 12 21" stroke="white" stroke-width="2" stroke-linecap="round"/>
+        <circle cx="12" cy="3" r="1.5" fill="white"/>
+        <circle cx="12" cy="21" r="1.5" fill="white"/>
+      </svg>
+    </div>
+    <div class="nav-logo-text">
+      <span>Fondazione Sanlorenzo</span>
+      <span>Glocal Impact Network</span>
+    </div>
+  </a>
+  <div class="nav-actions">
+    <a href="#footer" class="btn-ghost">Contatti</a>
+    <a href="#" class="btn-primary" onclick="openModal(); return false;">
+      <svg viewBox="0 0 16 16" fill="none"><path d="M8 2v8M5 7l3 3 3-3M3 11v2a1 1 0 001 1h8a1 1 0 001-1v-2" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Scarica il Report
+    </a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+
+  <div class="hero-content">
+    <div class="hero-eyebrow">1ª Edizione 2025 / 2026</div>
+    <h1 class="hero-title">
+      Piccole<br><em>Isole</em>
+    </h1>
+    <p class="hero-subtitle">
+      Analisi e ricerca di contesto, funzionamento e prospettive delle isole minori italiane che con amore e coraggio galleggiano nel Mediterraneo.
+    </p>
+    <div class="hero-cta">
+      <a href="#" class="btn-hero" onclick="openModal(); return false;">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 2v8M5 7l3 3 3-3M3 11v2a1 1 0 001 1h8a1 1 0 001-1v-2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Scarica il Report
+      </a>
+      <a href="#why" class="btn-hero-ghost">Scopri di più</a>
+    </div>
+  </div>
+
+  <div class="hero-scroll">
+    <span>Scorri</span>
+    <div class="hero-scroll-line"></div>
+  </div>
+
+  <div class="hero-waves">
+    <svg viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,60 C240,100 480,20 720,60 C960,100 1200,20 1440,60 L1440,120 L0,120 Z" fill="#fdf6ec" opacity="0.4"/>
+      <path d="M0,80 C360,40 720,110 1080,70 C1260,50 1380,85 1440,80 L1440,120 L0,120 Z" fill="#fdf6ec"/>
+    </svg>
+  </div>
+</section>
+
+<!-- STATS BAND -->
+<section class="stats-band">
+  <div class="stats-inner">
+    <p class="stats-label">Le piccole isole in numeri</p>
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-number">450<span class="stat-unit">+</span></div>
+        <div class="stat-desc">progetti locali analizzati nell'arco della ricerca</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">62K</div>
+        <div class="stat-desc">abitanti — l'isola più grande è Ischia</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">50<span class="stat-unit">%</span></div>
+        <div class="stat-desc">tasso medio di occupazione, sotto la media nazionale (59,3%)</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">70<span class="stat-unit">+</span></div>
+        <div class="stat-desc">minuti in media per raggiungere il centro servizi più vicino</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">−2<span class="stat-unit">%</span></div>
+        <div class="stat-desc">calo demografico 2021–2025 nelle isole minori</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">9</div>
+        <div class="stat-desc">isole senza ospedale — 20.336 persone prive di servizi sanitari</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">9</div>
+        <div class="stat-desc">isole senza scuole superiori — 1.086 ragazzi senza istruzione secondaria</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">10,8<span class="stat-unit">%</span></div>
+        <div class="stat-desc">di laureati nelle piccole isole, contro il 13% della media nazionale</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY SECTION -->
+<section class="section why-section" id="why">
+  <div class="section-inner">
+    <span class="section-tag">Il Rapporto</span>
+    <h2 class="section-title">Perché questo<br>report esiste</h2>
+
+    <div class="why-layout">
+      <div class="why-text">
+        <p>
+          Le piccole isole italiane rappresentano un contesto unico in cui le sfide dell'insularità si intrecciano con opportunità di sviluppo sostenibile, innovazione e coesione sociale. Questi territori sono caratterizzati da una duplice condizione di fragilità e resilienza.
+        </p>
+        <p>
+          Da un lato, la marginalità geografica e le difficoltà di accesso ai servizi essenziali pongono limiti strutturali alla loro crescita. Dall'altro, la loro dimensione ridotta e la forte identità culturale creano un terreno fertile per sperimentazioni innovative capaci di rispondere alle esigenze delle comunità locali.
+        </p>
+
+        <div class="blockquote">
+          <p>"Un salto dall'Innovazione Sociale all'Innovazione Trasformativa."</p>
+        </div>
+
+        <p>
+          Affrontare queste transizioni richiede la costruzione di ecosistemi multidisciplinari in grado di connettere istituzioni, enti non profit, imprese, centri di ricerca e cittadini in una rete di cooperazione strategica. Le isole minori possono diventare laboratori di innovazione capaci di testare modelli replicabili anche in altri contesti.
+        </p>
+        <p>
+          Attraverso strumenti di co-progettazione e anticipazione degli scenari, sarà possibile costruire strategie di sviluppo più inclusive, capaci di generare impatti positivi e duraturi nel tempo.
+        </p>
+      </div>
+
+      <div>
+        <div class="collab-card">
+          <div class="collab-title">La collaborazione</div>
+
+          <div class="collab-item">
+            <div class="collab-icon">
+              <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M8 2a3 3 0 100 6 3 3 0 000-6zM3 13c0-2.76 2.24-5 5-5s5 2.24 5 5" stroke="white" stroke-width="1.4" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div>
+              <div class="collab-item-title">Fondazione Sanlorenzo</div>
+              <div class="collab-item-text">Committente della ricerca e motore della trasformazione sociale nelle isole minori italiane.</div>
+            </div>
+          </div>
+
+          <div class="collab-item">
+            <div class="collab-icon">
+              <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="5" cy="5" r="2.5" stroke="white" stroke-width="1.4"/>
+                <circle cx="11" cy="11" r="2.5" stroke="white" stroke-width="1.4"/>
+                <path d="M7.5 5h1a2.5 2.5 0 012.5 2.5v1" stroke="white" stroke-width="1.4" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div>
+              <div class="collab-item-title">Glocal Impact Network</div>
+              <div class="collab-item-text">Partner metodologico e di ricerca. Ha condotto l'analisi di oltre 450 progetti locali.</div>
+            </div>
+          </div>
+
+          <div class="collab-item">
+            <div class="collab-icon">
+              <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M4 12V8M8 12V4M12 12V7" stroke="white" stroke-width="1.4" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div>
+              <div class="collab-item-title">Approccio ibrido</div>
+              <div class="collab-item-text">Ricerca online, interviste a distanza e workshop partecipativi in presenza a Ponza e Capraia.</div>
+            </div>
+          </div>
+
+          <div style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(46,134,193,0.15);">
+            <div style="font-size: 12px; color: var(--muted); margin-bottom: 0.75rem;">Coordinamento ricerca</div>
+            <div style="font-size: 14px; font-weight: 500; color: var(--navy);">Argentina Giusti, Giorgio Giorgi,<br>Lorenzo E. N. Giorgi</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PARTNERS -->
+<section class="partners-section" id="partners">
+  <div class="partners-header">
+    <span class="section-tag">Ecosistema</span>
+    <h2 class="section-title" style="font-size: clamp(1.6rem, 3vw, 2.4rem);">I nostri partner</h2>
+    <p class="section-lead" style="margin: 0 auto; text-align: center;">Istituzioni, fondazioni e organizzazioni che rendono possibile questa ricerca e la trasformazione delle isole minori italiane.</p>
+  </div>
+
+  <!-- Partner principale -->
+  <div style="max-width: 900px; margin: 0 auto 3rem; text-align: center;">
+    <div style="display: inline-flex; flex-direction: column; align-items: center; gap: 1rem; padding: 2rem 3rem; background: white; border-radius: 20px; border: 1px solid rgba(46,134,193,0.15);">
+      <div style="position: relative; width: 120px; height: 120px; display: flex; align-items: center; justify-content: center;">
+        <!-- Ministero della Protezione Civile e del Mare - logo SVG istituzionale -->
+        <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" width="110" height="110">
+          <!-- Stemma Repubblica Italiana semplificato -->
+          <circle cx="60" cy="60" r="54" fill="#003f8a" />
+          <circle cx="60" cy="60" r="48" fill="none" stroke="#e8c84a" stroke-width="2.5"/>
+          <!-- Stella a cinque punte -->
+          <polygon points="60,18 64.5,31.5 79,31.5 67.5,40 72,53.5 60,45 48,53.5 52.5,40 41,31.5 55.5,31.5" fill="#e8c84a"/>
+          <!-- Ingranaggio stilizzato (basso) -->
+          <circle cx="60" cy="78" r="14" fill="none" stroke="#e8c84a" stroke-width="2"/>
+          <circle cx="60" cy="78" r="8" fill="#e8c44a" opacity="0.6"/>
+          <!-- Ramo d'ulivo e quercia (sx e dx) -->
+          <path d="M30 78 Q20 60 35 48" stroke="#5cb85c" stroke-width="3" fill="none" stroke-linecap="round"/>
+          <path d="M90 78 Q100 60 85 48" stroke="#5cb85c" stroke-width="3" fill="none" stroke-linecap="round"/>
+          <!-- Onde del mare (basso) -->
+          <path d="M20 95 Q35 90 50 95 Q65 100 80 95 Q95 90 100 95" stroke="#e8c84a" stroke-width="2" fill="none"/>
+        </svg>
+      </div>
+      <div>
+        <div style="font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 600; color: var(--navy); line-height: 1.3;">Ministero della Protezione Civile<br>e delle Politiche del Mare</div>
+        <div style="font-size: 12px; color: var(--muted); margin-top: 6px; letter-spacing: 0.05em; text-transform: uppercase;">Partner istituzionale</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="partners-grid">
+    <div class="partner-tile">
+      <svg viewBox="0 0 56 40" xmlns="http://www.w3.org/2000/svg" width="90" height="64">
+        <rect width="56" height="40" rx="4" fill="#0d2340"/>
+        <text x="28" y="26" text-anchor="middle" font-family="serif" font-size="14" font-weight="bold" fill="white">FS</text>
+      </svg>
+      <div class="partner-name">Fondazione Sanlorenzo</div>
+    </div>
+    <div class="partner-tile">
+      <svg viewBox="0 0 56 40" xmlns="http://www.w3.org/2000/svg" width="90" height="64">
+        <rect width="56" height="40" rx="4" fill="#1a5276"/>
+        <text x="28" y="26" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="white">GIN</text>
+      </svg>
+      <div class="partner-name">Glocal Impact Network</div>
+    </div>
+    <div class="partner-tile">
+      <svg viewBox="0 0 56 40" xmlns="http://www.w3.org/2000/svg" width="90" height="64">
+        <rect width="56" height="40" rx="4" fill="#0f6e56"/>
+        <text x="28" y="26" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="white">IS</text>
+      </svg>
+      <div class="partner-name">Isole Sostenibili</div>
+    </div>
+    <div class="partner-tile">
+      <svg viewBox="0 0 56 40" xmlns="http://www.w3.org/2000/svg" width="90" height="64">
+        <rect width="56" height="40" rx="4" fill="#2c3e50"/>
+        <text x="28" y="26" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="white">ISTAT</text>
+      </svg>
+      <div class="partner-name">ISTAT</div>
+    </div>
+    <div class="partner-tile">
+      <svg viewBox="0 0 56 40" xmlns="http://www.w3.org/2000/svg" width="90" height="64">
+        <rect width="56" height="40" rx="4" fill="#003f8a"/>
+        <text x="28" y="22" text-anchor="middle" font-family="sans-serif" font-size="9" font-weight="bold" fill="white">COMM.</text>
+        <text x="28" y="33" text-anchor="middle" font-family="sans-serif" font-size="9" fill="white">PARLAM.</text>
+      </svg>
+      <div class="partner-name">Commissione Parlamentare Insularità</div>
+    </div>
+    <div class="partner-tile">
+      <svg viewBox="0 0 56 40" xmlns="http://www.w3.org/2000/svg" width="90" height="64">
+        <rect width="56" height="40" rx="4" fill="#6c3483"/>
+        <text x="28" y="22" text-anchor="middle" font-family="sans-serif" font-size="9" font-weight="bold" fill="white">DIP.</text>
+        <text x="28" y="33" text-anchor="middle" font-family="sans-serif" font-size="9" fill="white">COESIONE</text>
+      </svg>
+      <div class="partner-name">Dipartimento Politiche di Coesione</div>
+    </div>
+    <div class="partner-tile">
+      <svg viewBox="0 0 56 40" xmlns="http://www.w3.org/2000/svg" width="90" height="64">
+        <rect width="56" height="40" rx="4" fill="#784212"/>
+        <text x="28" y="22" text-anchor="middle" font-family="sans-serif" font-size="9" font-weight="bold" fill="white">CAMERA</text>
+        <text x="28" y="33" text-anchor="middle" font-family="sans-serif" font-size="9" fill="white">SENATO</text>
+      </svg>
+      <div class="partner-name">Camera e Senato — Uffici Bilancio</div>
+    </div>
+    <div class="partner-tile">
+      <svg viewBox="0 0 56 40" xmlns="http://www.w3.org/2000/svg" width="90" height="64">
+        <rect width="56" height="40" rx="4" fill="#922b21"/>
+        <text x="28" y="22" text-anchor="middle" font-family="sans-serif" font-size="8" font-weight="bold" fill="white">ISOLE</text>
+        <text x="28" y="33" text-anchor="middle" font-family="sans-serif" font-size="8" fill="white">SOSTENIBILI</text>
+      </svg>
+      <div class="partner-name">Osservatorio Isole Minori</div>
+    </div>
+  </div>
+</section>
+
+<!-- REPORT CTA BAND -->
+<section class="report-cta">
+  <div class="report-cta-inner">
+    <h2>Leggi il report completo</h2>
+    <p>Oltre 130 pagine di analisi, dati e best practice sulle isole minori italiane. Scaricalo gratuitamente.</p>
+    <a href="#" class="btn-hero" onclick="openModal(); return false;" style="display: inline-flex;">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 2v8M5 7l3 3 3-3M3 11v2a1 1 0 001 1h8a1 1 0 001-1v-2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Scarica il Report
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="nav-logo-mark" style="background: rgba(255,255,255,0.1);">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="22" height="22">
+            <path d="M12 3C9 3 6 5 6 8C6 11 9 12 12 12C15 12 18 13 18 16C18 19 15 21 12 21" stroke="white" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="12" cy="3" r="1.5" fill="white"/>
+            <circle cx="12" cy="21" r="1.5" fill="white"/>
+          </svg>
+        </div>
+        <p>Fondazione Sanlorenzo e Glocal Impact Network lavorano insieme per trasformare le piccole isole italiane in laboratori di innovazione trasformativa e sviluppo sostenibile.</p>
+        <div class="social-links" style="margin-top: 1.25rem;">
+          <a href="#" class="social-link">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg>
+          </a>
+          <a href="#" class="social-link">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+          <a href="#" class="social-link">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" style="fill:none;stroke:rgba(255,255,255,0.5);stroke-width:2"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" style="stroke:rgba(255,255,255,0.5);stroke-width:2;stroke-linecap:round"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Report</h4>
+        <a href="#">Piccole Isole 2025</a>
+        <a href="#">Metodologia</a>
+        <a href="#">Dati e fonti</a>
+        <a href="#">Isole studiate</a>
+      </div>
+
+      <div class="footer-col">
+        <h4>Organizzazioni</h4>
+        <a href="#">Fondazione Sanlorenzo</a>
+        <a href="#">Glocal Impact Network</a>
+        <a href="#">Partner</a>
+        <a href="#">Collabora con noi</a>
+      </div>
+
+      <div class="footer-col">
+        <h4>Contatti</h4>
+        <p><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="f88a919b9d8a9b99b88b999694978a9d9682979e97969c99829197969dd6978a9f">[email&#160;protected]</a></p>
+        <p style="margin-top: 0.75rem; font-size: 12px; line-height: 1.7;">Per segnalare progetti locali particolarmente significativi, scrivi all'indirizzo email.</p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2025 Fondazione Sanlorenzo · Glocal Impact Network. Tutti i diritti riservati.</span>
+      <div style="display: flex; gap: 1.5rem;">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Cookie Policy</a>
+        <a href="#">Note legali</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modal">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()">×</button>
+
+    <div id="modal-form">
+      <h3>Scarica il Report</h3>
+      <p>Lascia la tua email per accedere al report completo sulle piccole isole italiane. È gratuito.</p>
+
+      <div class="modal-field">
+        <label>Indirizzo Email</label>
+        <input type="email" id="email-input" placeholder="nome@esempio.com">
+      </div>
+
+      <div class="consent-row">
+        <input type="checkbox" id="privacy-consent">
+        <label for="privacy-consent">
+          Acconsento al trattamento dei miei dati personali ai sensi del GDPR e della <a href="#">Privacy Policy</a>. Potrò ricevere aggiornamenti sulla ricerca e le attività di Fondazione Sanlorenzo.
+        </label>
+      </div>
+
+      <button class="btn-modal" id="submit-btn" onclick="handleSubmit()" disabled>
+        Accedi al Report →
+      </button>
+    </div>
+
+    <div id="modal-success" class="modal-success" style="display:none;">
+      <div class="modal-success-icon">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+          <circle cx="14" cy="14" r="12" stroke="#1a5276" stroke-width="2"/>
+          <path d="M8.5 14l4 4 7-7" stroke="#1a5276" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <h3>Ottimo, ci siamo!</h3>
+      <p>La tua email è stata registrata con successo. Puoi ora sfogliare e scaricare il report completo.</p>
+      <a href="report-viewer.html" class="btn-access">Sfoglia il Report →</a>
+    </div>
+  </div>
+</div>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  function openModal() {
+    document.getElementById('modal').classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    document.getElementById('modal').classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  document.getElementById('modal').addEventListener('click', function(e) {
+    if (e.target === this) closeModal();
+  });
+
+  const emailInput = document.getElementById('email-input');
+  const consentCheck = document.getElementById('privacy-consent');
+  const submitBtn = document.getElementById('submit-btn');
+
+  function validate() {
+    const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value);
+    submitBtn.disabled = !(emailOk && consentCheck.checked);
+  }
+
+  emailInput.addEventListener('input', validate);
+  consentCheck.addEventListener('change', validate);
+
+  function handleSubmit() {
+    submitBtn.textContent = 'Registrazione in corso...';
+    submitBtn.disabled = true;
+
+    // Qui integrazione Brevo: sostituire con chiamata API Brevo reale
+    // fetch('https://api.brevo.com/v3/contacts', { ... })
+
+    setTimeout(() => {
+      document.getElementById('modal-form').style.display = 'none';
+      document.getElementById('modal-success').style.display = 'block';
+    }, 1200);
+  }
+
+  // Nav scroll effect
+  window.addEventListener('scrol
