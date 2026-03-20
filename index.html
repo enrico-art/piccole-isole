@@ -1286,4 +1286,14 @@
   }
 
   // Nav scroll effect
-  window.addEventListener('scrol
+ window.addEventListener('scroll', () => {
+    const nav = document.getElementById('navbar');
+    if (window.scrollY > 40) {
+      nav.style.boxShadow = '0 2px 20px rgba(13,35,64,0.08)';
+    } else {
+      nav.style.boxShadow = 'none';
+    }
+  });
+</script>
+</body>
+</html>
