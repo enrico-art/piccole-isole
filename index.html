@@ -1270,10 +1270,22 @@
     // Qui integrazione Brevo: sostituire con chiamata API Brevo reale
     // fetch('https://api.brevo.com/v3/contacts', { ... })
 
-    setTimeout(() => {
-      document.getElementById('modal-form').style.display = 'none';
-      document.getElementById('modal-success').style.display = 'block';
-    }, 1200);
+    fetch('/api/subscribe', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({ email: emailInput.value })
+}).then(r => r.json()).then(data => {
+  if (data.ok) {
+    document.getElementById('modal-form').style.display = 'none';
+    document.getElementById('modal-success').style.display = 'block';
+  } else {
+    submitBtn.textContent = 'Errore, riprova';
+    submitBtn.disabled = false;
+  }
+}).catch(() => {
+  submitBtn.textContent = 'Errore, riprova';
+  submitBtn.disabled = false;
+});
   }
 
   // Nav scroll effect
