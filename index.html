@@ -1267,9 +1267,6 @@
     submitBtn.textContent = 'Registrazione in corso...';
     submitBtn.disabled = true;
 
-    // Qui integrazione Brevo: sostituire con chiamata API Brevo reale
-    // fetch('https://api.brevo.com/v3/contacts', { ... })
-
     fetch('/api/subscribe', {
   method: 'POST',
   headers: { 'Content-Type': 'application/json' },
