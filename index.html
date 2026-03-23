@@ -856,8 +856,10 @@
 
   @media (max-width: 768px) {
     .why-layout { grid-template-columns: 1fr; gap: 2.5rem; }
-    .why-layout > div:first-child { order: 2; }
-    .why-layout > div:last-child { order: 1; }
+    .why-layout > div:first-child { order: 1; }
+    .why-layout > div:last-child { order: 2; }
+    .why-layout-reverse > div:first-child { order: 1; }
+    .why-layout-reverse > div:last-child { order: 2; }
     .partners-grid { grid-template-columns: repeat(2, 1fr); }
     .footer-top { grid-template-columns: 1fr 1fr; gap: 2rem; }
     .footer-brand { grid-column: 1 / -1; }
