@@ -143,6 +143,13 @@
   }
 
   .btn-primary svg { width: 14px; height: 14px; }
+ .btn-label-short { display: none; }
+.btn-label-full { display: inline; }
+
+@media (max-width: 480px) {
+  .btn-label-full { display: none; }
+  .btn-label-short { display: inline; }
+}
 
   /* ── HERO ── */
   .hero {
@@ -860,10 +867,11 @@
 </a>
   <div class="nav-actions">
     <a href="#footer" class="btn-ghost">Contatti</a>
-    <a href="#" class="btn-primary" onclick="openModal(); return false;">
-      <svg viewBox="0 0 16 16" fill="none"><path d="M8 2v8M5 7l3 3 3-3M3 11v2a1 1 0 001 1h8a1 1 0 001-1v-2" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      Scarica il Report
-    </a>
+   <a href="#" class="btn-primary" onclick="openModal(); return false;">
+  <svg viewBox="0 0 16 16" fill="none"><path d="M8 2v8M5 7l3 3 3-3M3 11v2a1 1 0 001 1h8a1 1 0 001-1v-2" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  <span class="btn-label-full">Scarica il Report</span>
+  <span class="btn-label-short">Report</span>
+</a>
   </div>
 </nav>
 
